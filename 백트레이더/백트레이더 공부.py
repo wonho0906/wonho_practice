@@ -2,7 +2,8 @@
 
 
 import backtrader as bt
-
+import pandas as pd
+ 
 
 class MyStrategy(bt.Strategy):
     def __init__(self): pass
@@ -19,5 +20,5 @@ if __name__ == "__main__":
 
     Naver금융에서 데이터를 파싱하여 Backtrader에서 사용가능한 Pandas형태로 바꾸어주는 함수를 만들어 사용한다.
     '''
-    df = 
+    df = pd.DataFrame(columns=['Date', 'Open','High','Low','Close','Volume'])
     data = bt.feeds.PandasData(dataname = df)
