@@ -76,7 +76,6 @@ def save_to_csv(df, file_path):
     df.to_csv('KRW-BTC_upbit')
 
 
-<<<<<<< HEAD
 
 
 
@@ -88,5 +87,3 @@ df = add_candle_type_column(df)
 save_to_csv(df,"help")
 print(df)
 
-=======
->>>>>>> 19f18d973083b80800173e5c1a62e0b54a1d305e
