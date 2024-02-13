@@ -1,15 +1,22 @@
 import pandas as pd
 import pyupbit
 import backtrader as bt
+import ccxt
 
+upbit = ccxt.upbit()
+btc_candle = ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m")
+columns = ['', 'open', 'high', 'low', 'close', 'volume']
+df = pd.DataFrame(btc_candle, columns=columns)
+df[''] = pd.to_datetime(df[''], unit='ms')
+df.set_index('', inplace=True)
 
 class MyStrategy(bt.Strategy):
     def __init__(self): pass
     def next(self): pass
 
 
-
-
+# pyupbit를 이용.
+'''
 def get_upbit_ohlcv(symbol, interval, count, to):
     df = pyupbit.get_ohlcv(symbol, interval=interval, count=count, to=to)
     return df
@@ -41,6 +48,7 @@ df = get_upbit_ohlcv(symbol, interval, chunk_size, end_date)
 df = add_missing_timestamps(df, start_date, end_date)
 df = add_candle_type_column(df)
 # save_to_csv(df, output_file)
+'''
 '''
 # 추가 데이터 다운로드 및 파일에 이어쓰기
 while df.index[-1] > pd.to_datetime(start_date):
