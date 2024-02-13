@@ -3,6 +3,7 @@ import pyupbit
 import backtrader as bt
 import ccxt
 
+# cctx를 이용해서 dataframe 만들기
 upbit = ccxt.upbit()
 btc_candle = ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m")
 columns = ['', 'open', 'high', 'low', 'close', 'volume']
