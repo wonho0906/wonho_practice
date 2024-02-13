@@ -5,7 +5,7 @@ import ccxt
 
 # cctx를 이용해서 dataframe 만들기
 upbit = ccxt.upbit()
-btc_candle = ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m")
+btc_candle = ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m", "2020-10-01 00:00:00" , 10)
 columns = ['', 'open', 'high', 'low', 'close', 'volume']
 df = pd.DataFrame(btc_candle, columns=columns)
 df[''] = pd.to_datetime(df[''], unit='ms')
