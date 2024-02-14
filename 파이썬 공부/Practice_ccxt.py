@@ -6,7 +6,7 @@ upbit = ccxt.upbit()
 
 input_time = "2024-01-15 00:15:00"
 utc_time = pd.to_datetime(input_time, utc=True)
-timestamp = int(utc_time.timestamp())
+timestamp = int(utc_time.timestamp())* 1000
 print(timestamp)
 
 btc_candle = ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m", since = timestamp ,limit = 100)

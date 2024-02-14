@@ -72,9 +72,9 @@ def save_to_csv(df, file_path):
 
 
 
-df = get_upbit_ohlcv("KRW-BTC", "minute1", 4000000, "20240206", 0.1 )
-df = add_missing_timestamps(df, "2017-09-25 11:50:00", "2024-02-07 00:20:00") 
+df = get_upbit_ohlcv("KRW-BTC", "minute1", 40, "20240206", 0.1 )
+# df = add_missing_timestamps(df, "2017-09-28 11:50:00", "2024-02-07 00:20:00") 
 df = add_candle_type_column(df)
-# save_to_csv(df,"help")
+save_to_csv(df,"help")
 print(df)
 
