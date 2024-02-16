@@ -3,17 +3,19 @@ import pyupbit
 import backtrader as bt
 import ccxt
 
-# cctx를 이용해서 dataframe 만들기
 upbit = ccxt.upbit()
-btc_candle = ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m", "2020-10-01 00:00:00" , 10)
+
+# ccxt이용
+input_time = "2024-01-15 00:15:00"
+utc_time = pd.to_datetime(input_time, utc=True)
+timestamp = int(utc_time.timestamp())
+print(timestamp)
+
+btc_candle = ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m", since = timestamp ,limit = 100)
 columns = ['', 'open', 'high', 'low', 'close', 'volume']
 df = pd.DataFrame(btc_candle, columns=columns)
 df[''] = pd.to_datetime(df[''], unit='ms')
 df.set_index('', inplace=True)
-
-class MyStrategy(bt.Strategy):
-    def __init__(self): pass
-    def next(self): pass
 
 
 # pyupbit를 이용.
