@@ -1,16 +1,14 @@
-# Calculator 클래스 생성
-class Calculator:
-    def __init__(self):           # __init__(self): >> 객체를 초기화 하는 생성자 역할을 함. 초기 설정 함수 같은거.
-        self.result = 0
+import ccxt
 
-    def add(self, num):
-        self.result += num
-        return self.result
+def get_btc_listing_time():
+    exchange_id = 'upbit'
+    symbol = 'BTC/KRW'
 
-cal1 = Calculator()
-cal2 = Calculator()
+    exchange = ccxt.upbit()
+    market = exchange.load_markets()[symbol]
+    ticker = exchange.fetch_ticker(symbol)
 
-print(cal1.add(3))
-print(cal1.add(4))
-print(cal2.add(3))
-print(cal2.add(7))
+    listing_time = market['timestamp']
+    print(f'BTC 상장 시간: {listing_time}')
+
+get_btc_listing_time()
