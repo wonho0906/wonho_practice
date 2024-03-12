@@ -8,8 +8,6 @@ import pandas as pd
 
 # upbit에서 ohlcv 정보를 다운로드하는 함수.
 
-
-
 '''
 symbol의 to 바로 앞부터 과거의 interval봉 데이터를 count개 만큼 period 간격으로 불러온다.
 
@@ -43,16 +41,6 @@ def add_missing_timestamps(df, start_date, end_date):
     return df
 
 
-# 거래 정보가 없어서 비어있는 시각을 채우는 함수.
-'''
-df = ohlcv dataframe
-start_date = 시작 날짜
-end_date   = 종료 날짜   
-'''
-def add_missing_timestamps(df, start_date, end_date):
-    date_range = pd.date_range(start=start_date, end=end_date, freq='1T')
-    df = df.reindex(date_range)
-    return df
 
 # 거래 정보 없는 시각 추가해서 null 처리
 

@@ -60,7 +60,8 @@ count = 1000
 for pos in range(count, 0, -200):
     query_count = min(pos,200)
 '''
-btc_candle= ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m", since, limit = 1000)#query_count)
+btc_candle= ccxt.upbit.fetch_ohlcv(upbit, "KRW-BTC", "1m", since, limit = 1000)
+#query_count)
 
 # 불러온 data를 dataframe으로 가공하기
 columns = ['', 'open', 'high', 'low', 'close', 'volume']
